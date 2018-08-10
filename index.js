@@ -1,7 +1,7 @@
 
 
 class Button extends React.Component {
-	state = { counter: 9 };
+	state = { counter: 0 };
 
 	handleClick = () => {
 		console.log('tetris', this.state.counter);
@@ -22,9 +22,28 @@ class Button extends React.Component {
 };
 
 
+const Result = (props) => {
+	return (
+		<div>....</div>
+	);
+};
 
 
-ReactDOM.render( <Button/>, root );
+class App extends React.Component {
+	render() {
+		return (
+			<div>
+				<Button />
+				<Result />
+			</div>
+		);
+	}
+};
+
+
+
+
+ReactDOM.render( <App />, root );
 
 
 
