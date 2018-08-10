@@ -1,10 +1,7 @@
 
 
 class Button extends React.Component {
-	constructor( props ) {
-		super(props);
-		this.state = { counter: 9 };
-	};
+	state = { counter: 9 };
 
 	handleClick = () => {
 		console.log('tetris', this.state.counter);
