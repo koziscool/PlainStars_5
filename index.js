@@ -1,21 +1,11 @@
 
 
 class Button extends React.Component {
-	state = { counter: 0 };
-
-	handleClick = () => {
-		console.log('tetris', this.state.counter);
-		this.setState( (prevState) => {
-			return {
-				counter: this.state.counter + 1
-			}
-		});
-	};
 
 	render() {
 		return (
-			<button onClick={this.handleClick}>
-				{this.state.counter}
+			<button onClick={this.props.onClickFunction}>
+				+1
 			</button>
 		);
 	}
@@ -24,17 +14,28 @@ class Button extends React.Component {
 
 const Result = (props) => {
 	return (
-		<div>....</div>
+		<div>{props.counter}</div>
 	);
 };
 
 
 class App extends React.Component {
+	state = { counter: 0 };
+
+	incrementCounter = ()  => {
+		this.setState( (prevState) => {
+			return {
+				counter: this.state.counter + 1
+			}
+		});
+	}
+
 	render() {
 		return (
 			<div>
-				<Button />
-				<Result />
+				<Button onClickFunction={this.incrementCounter}/>
+		
+				<Result counter={this.state.counter}/>
 			</div>
 		);
 	}
