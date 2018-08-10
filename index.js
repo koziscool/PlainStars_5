@@ -7,9 +7,11 @@ class Button extends React.Component {
 	};
 
 	handleClick = () => {
-		console.log('click', this.state.counter);
-		this.setState( {
-			counter: this.state.counter + 1
+		console.log('tetris', this.state.counter);
+		this.setState( (prevState) => {
+			return {
+				counter: this.state.counter + 1
+			}
 		});
 	};
 
