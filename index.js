@@ -23,7 +23,7 @@ const Card = (props) => {
 const CardList = (props) => {
 	return (
 		<div>
-			{ props.cards.map( card => <Card {...card}/> ) }
+			{ props.cards.map( card => <Card key={ card.id } {...card}/> ) }
 		</div>
 	);
 
@@ -65,26 +65,12 @@ class Form extends React.Component{
 
 class App extends React.Component {
 
-	state = { cards: [
-
-		{
-			name:"Paul O'Shanessy",
-			avatar_url:"https://avatars1.githubusercontent.com/u/8445?v=4i",
-			company:"Facebook"
-
-		},
-		{
-			name:"Paul O'Shanessy",
-			avatar_url:"https://avatars1.githubusercontent.com/u/8445?v=4i",
-			company:"Facebook"
-		},
-		]
-	};
-
-
+	state = { cards: []};
 
 	addNewCard = (cardInfo) => {
-		console.log( cardInfo );
+		this.setState( prevState => ({
+			cards: prevState.cards.concat( cardInfo )
+		}));
 	};
 
 	render() {
